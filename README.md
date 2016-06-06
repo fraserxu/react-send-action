@@ -1,4 +1,4 @@
-## react-send-action
+# react-send-action
 
 react-send-action is a small library that hook up a `send-action` store into your React app, works not unlike [react-redux](https://github.com/reactjs/react-redux).
 
