@@ -4,6 +4,7 @@ class App extends React.Component {
   static propTypes = {
     user: PropTypes.object
   }
+
   render () {
     const { user } = this.props
     return (
