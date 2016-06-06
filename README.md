@@ -1,4 +1,10 @@
-# react-send-action
+react-send-action
+=================
+
+[![NPM version][npm-image]][npm-url]
+[![build status][travis-image]][travis-url]
+[![Downloads][downloads-image]][downloads-url]
+[![js-standard-style][standard-image]][standard-url]
 
 react-send-action is a small library that hook up a `send-action` store into your React app, works not unlike [react-redux](https://github.com/reactjs/react-redux).
 
@@ -187,3 +193,12 @@ For more details, please check the `example` directory.
 ### License
 
 MIT
+
+[npm-image]: https://img.shields.io/npm/v/react-send-action.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/react-send-action
+[travis-image]: https://img.shields.io/travis/fraserxu/react-send-action/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/fraserxu/react-send-action
+[downloads-image]: http://img.shields.io/npm/dm/react-send-action.svg?style=flat-square
+[downloads-url]: https://npmjs.org/package/react-send-action
+[standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
+[standard-url]: https://github.com/feross/standard
