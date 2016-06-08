@@ -190,6 +190,7 @@ The last way and easiest way is to use the builtin `Connect` component which hoo
 
 ```JavaScript
 import React from 'react'
+import { Connect } from 'react-send-action'
 
 import App from './app'
 import { fetchStats } from './common/utils/api'
