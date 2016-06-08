@@ -3,8 +3,9 @@ import hoistStatics from 'hoist-non-react-statics'
 
 /**
  * Map props and actions to child component
- * @param  {Object} mapProps
+ * @param  {Function} mapProps
  * @param  {Function} mapActionHandlers
+ * @param {Object} The static method needs to bind
  * @return {Object} wrapped component
  */
 export default function connect (mapProps, mapActionHandlers, statics) {
@@ -45,7 +46,7 @@ export default function connect (mapProps, mapActionHandlers, statics) {
     // map static method to `Connect` component
     // we use it for async data fetching from backend
     if (statics && typeof statics === 'object') {
-      Connect = hoistStatics(Connect, statics)
+      hoistStatics(Connect, statics)
     }
 
     return hoistStatics(Connect, WrappedComponent)
