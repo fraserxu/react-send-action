@@ -69,7 +69,7 @@ export default function onaction (action, state) {
 **Provider(client side)**
 
 ```JavaScript
-import Provider from 'react-send-action'
+import { Provider } from 'react-send-action'
 import React from 'react'
 import { render } from 'react-dom'
 
@@ -100,7 +100,7 @@ renderToString(
 )
 ```
 
-There are two way to consume `state` and dispatch `action` in your child componet.
+There are three way to consume `state` and dispatch `action` in your child componet.
 
 First way is to access to `store` object directly from `this.context.store`, which is **not recommended** as
 
@@ -137,7 +137,7 @@ App.contextTypes = {
 export default App
 ```
 
-The other and recommendeded way to use it is through `container component`. There are lots of reasons to use container component, the most obvious one is to seperate the data logic from your view component, most of your view should be `dumb` and only takes in props and render the view, so it's very easy to test and reuse.
+The other way to use it is through `container component`. There are lots of reasons to use container component, the most obvious one is to seperate the data logic from your view component, most of your view should be `dumb` and only takes in props and render the view, so it's very easy to test and reuse.
 
 You should always only handle your data logic inside the high order component, and pass down the `state` and `dispatchers` down through `props`.
 
@@ -186,9 +186,43 @@ export default AppContainer
 
 For more details, please check the `example` directory.
 
-### Roadmap
+The last way and easiest way is to use the builtin `Connect` component which hook up the `props`, `actionsHandlers` and `static` method to the wrappedComponent.
 
-- [ ] Implement `Connect`
+```JavaScript
+import React from 'react'
+
+import App from './app'
+import { fetchStats } from './common/utils/api'
+
+const AppContainer = Connect(
+  (store, props) => {
+    const { user, stats } = store.state()
+    return {
+      user,
+      stats
+    }
+  },
+  (store, props) => {
+    return {
+      setUser: (user) => {
+        store({
+          type: 'userSignedIn',
+          payload: {
+            user
+          }
+        })
+      }
+    }
+  },
+  {
+    actions: {
+      stats: fetchStats
+    }
+  }
+)(App)
+
+export default AppContainer
+```
 
 ### License
 

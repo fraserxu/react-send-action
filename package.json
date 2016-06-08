@@ -1,10 +1,10 @@
 {
   "name": "react-send-action",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "react-send-action is a small library that hook up a `send-action` store into your React app, works not unlike react-redux",
   "main": "lib/index.js",
   "scripts": {
-    "build": "babel index.js --out-dir lib",
+    "build": "babel src --out-dir lib",
     "test": "standard index.js",
     "prepublish": "npm run test && npm run build"
   },
@@ -13,7 +13,8 @@
     "url": "git://github.com/fraserxu/react-send-action.git"
   },
   "files": [
-    "lib"
+    "lib",
+    "src"
   ],
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0-0"
@@ -31,6 +32,7 @@
   "author": "Fraser Xu",
   "license": "MIT",
   "dependencies": {
+    "hoist-non-react-statics": "^1.0.6",
     "send-action": "^2.0.0"
   },
   "devDependencies": {
