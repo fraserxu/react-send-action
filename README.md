@@ -56,9 +56,20 @@ export default Connect(
     }
   },
   (store, props) => {
-    let { user } = store.state()
     return {
-      user
+      setUser: (user) => {
+        store({
+          type: 'userSignedIn',
+          payload: {
+            user
+          }
+        })
+      }
+    }
+  },
+  {
+    actions: {
+      stats: fetch('/api/stats')
     }
   }
 )(App)
