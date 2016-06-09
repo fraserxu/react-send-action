@@ -22,11 +22,24 @@ $ npm i react-send-action --save
 
 > Using `send-action` you trigger actions, modify state based on those actions, and listen to the changes to render your application.
 
+## API
+
+### `<Provider createStore={createStore}>`
+
+Makes the `send-action` store available to the `connect()` calls in the component hierarchy below. Normally, you can’t use `connect()` without wrapping the root component in `<Provider>`.
+
+
+### `Connect(mapProps, mapActionHandlers, mapStatics)()`
+
+Connects a React component to a `send-action` store.
+
+It does not modify the component class passed to it. Instead, it *returns* a new, connected component class, for you to use.
+
 ### Usage
 
 #### TLDR:
 
-**Container component**
+**Container component:** select `props` and `actionHandler` to Container.
 
 ```JavaScript
 import React, { PropTypes } from 'react'
@@ -41,12 +54,18 @@ export default Connect(
     return {
       user
     }
+  },
+  (store, props) => {
+    let { user } = store.state()
+    return {
+      user
+    }
   }
 )(App)
 
 ```
 
-**Root of the app**
+**Root of the app:** hook store in to the app.
 
 ```JavaScript
 import React from 'react'
@@ -70,7 +89,7 @@ render((
 
 ```
 
-
+#### Longer version
 
 #### Prepare `actionHandler` and `initialState` that will be used to `createStore`
 
