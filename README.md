@@ -29,7 +29,7 @@ $ npm i react-send-action --save
 Makes the `send-action` store available to the `connect()` calls in the component hierarchy below. Normally, you can’t use `connect()` without wrapping the root component in `<Provider>`.
 
 
-### `Connect(mapProps, mapActionHandlers, mapStatics)()`
+### `Connect(mapProps, mapActionHandlers, mapStatics)(Component)`
 
 Connects a React component to a `send-action` store.
 
