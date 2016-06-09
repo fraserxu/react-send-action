@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel src --out-dir lib",
     "lint": "standard index.js",
-    "test": "browserify test/provider.test.js -t [ babelify --presets [ es2015 stage-0 react ] ] | tape-run",
+    "test": "browserify test/*.test.js -t [ babelify --presets [ es2015 stage-0 react ] ] | tape-run",
     "prepublish": "npm run test && npm run build"
   },
   "repository": {
@@ -45,6 +45,7 @@
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
     "react": "^15.1.0",
+    "react-addons-test-utils": "^15.1.0",
     "react-dom": "^15.1.0",
     "standard": "^7.1.2",
     "tape": "^4.5.1",

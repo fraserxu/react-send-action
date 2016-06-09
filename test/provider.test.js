@@ -3,19 +3,8 @@ import React from 'react'
 import { render } from 'react-dom'
 
 import Provider from '../src/provider'
-import App from '../example/app'
 
 test('Provider component', function (t) {
-  class Child extends React.Component {
-    render () {
-      return <div />
-    }
-  }
-
-  Child.contextTypes = {
-    store: React.PropTypes.func.isRequired
-  }
-
   const createStore = {
     actionHandler: function () {},
     initialState: {
