@@ -1,6 +1,6 @@
 {
   "name": "react-send-action",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "react-send-action is a small library that hook up a `send-action` store into your React app, works not unlike react-redux",
   "main": "lib/index.js",
   "scripts": {

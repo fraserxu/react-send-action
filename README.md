@@ -24,6 +24,54 @@ $ npm i react-send-action --save
 
 ### Usage
 
+#### TLDR:
+
+**Container component**
+
+```JavaScript
+import React, { PropTypes } from 'react'
+
+import { Connect } from 'react-send-action'
+import App from './app'
+
+// select user from store
+export default Connect(
+  (store, props) => {
+    let { user } = store.state()
+    return {
+      user
+    }
+  }
+)(App)
+
+```
+
+**Root of the app**
+
+```JavaScript
+import React from 'react'
+import { render } from 'react-dom'
+import Provider from '../'
+
+import AppContainer from './appContainer'
+import initialState from './initialState'
+import actionHandler from './actionHandler'
+
+const createStore = {
+  actionHandler,
+  initialState
+}
+
+render((
+  <Provider createStore={createStore}>
+    <AppContainer />
+  </Provider>
+), document.body)
+
+```
+
+
+
 #### Prepare `actionHandler` and `initialState` that will be used to `createStore`
 
 * Create `initialState` for your whole application
